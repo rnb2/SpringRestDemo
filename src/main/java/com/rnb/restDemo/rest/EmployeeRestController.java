@@ -58,7 +58,12 @@ public class EmployeeRestController {
     }
 
     @DeleteMapping("/employees/{employeeId}")
-    public void delete(@PathVariable int employeeId) {
+    public String delete(@PathVariable int employeeId) throws RestDemoException {
+        Employee employee = employeeService.findById(employeeId);
+        if (employee == null) {
+            throw new RestDemoException("Employee not found for id=%d !!!".formatted(employeeId));
+        }
         employeeService.delete(employeeId);
+        return "Deleted employee with id=" + employeeId;
     }
 }
