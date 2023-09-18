@@ -29,7 +29,7 @@ public class EmployeeRestController {
         return employeeService.findById(employeeId);
     }
 
-    @GetMapping("/employees/{employeeFirstName:.*\\\\D.*}")
+    @GetMapping("/employees/name/{employeeFirstName}")
     public List<Employee> getEmployeesByName(@PathVariable("employeeFirstName") String employeeFirstName){
         return employeeService.findByName(employeeFirstName);
     }
