@@ -37,3 +37,5 @@ RequestBody:
   "email": "mail@value.com"
   
 }
+
+DEL: http://localhost:8082/rnb/api/employees/{emplyeeId}
