@@ -1,5 +1,6 @@
 package com.rnb.restDemo.rest;
 
+import com.rnb.restDemo.dto.EmployeeDTO;
 import com.rnb.restDemo.entity.Employee;
 import com.rnb.restDemo.exception.RestDemoException;
 import com.rnb.restDemo.service.EmployeeService;
@@ -22,7 +23,7 @@ public class EmployeeRestController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/employees")
+    @GetMapping(path = "/employees", produces = {"application/json"})
     public List<Employee> getEmployees() {
         return employeeService.getAllEmployees();
     }
@@ -45,10 +46,10 @@ public class EmployeeRestController {
         return employeeList;
     }
 
-    @PostMapping("/employees")
-    public Employee save(@RequestBody Employee employee) {
-        Employee saved = employeeService.save(employee);
-        return saved;
+    @PostMapping(path = "/employees", consumes = {"application/json"})
+    public Employee save(@RequestBody EmployeeDTO employeeDto) {
+        Employee employee = new Employee(employeeDto.firstName(), employeeDto.lastName(), employeeDto.email());
+        return employeeService.save(employee);
     }
 
     @PutMapping("/employees")

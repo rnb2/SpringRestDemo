@@ -4,6 +4,7 @@ import com.rnb.restDemo.entity.Employee;
 import com.rnb.restDemo.dao.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
+    //private final EmployeeDao employeeDao;
     private final EmployeeRepository employeeRepository;
 
     @Autowired
@@ -40,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    //@Transactional
+    @Transactional
     public Employee update(int id, Employee employee) {
         Optional<Employee> employeeOptional = employeeRepository.findById(id);
         if (employeeOptional.isPresent()) {
