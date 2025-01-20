@@ -13,4 +13,6 @@ public interface EmployeeService {
 
     Employee update(int id, Employee studentParam);
     void delete(int id);
+
+    void callRemoteService();
 }

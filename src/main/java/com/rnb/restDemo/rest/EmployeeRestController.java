@@ -52,6 +52,18 @@ public class EmployeeRestController {
         return employeeService.save(employee);
     }
 
+    /**
+     * http://localhost:8082/swagger-ui/index.html
+     * example: RequestBody:
+     * {
+     *   "id": 13,
+     *   "firstName": "string",
+     *   "lastName": "string",
+     *   "email": "string"
+     * }
+     * @param employee
+     * @return
+     */
     @PutMapping("/employees")
     public Employee update(@RequestBody Employee employee) {
         Employee updated = employeeService.update(employee.getId(), employee);
