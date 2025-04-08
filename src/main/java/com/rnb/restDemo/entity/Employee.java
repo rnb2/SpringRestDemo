@@ -2,6 +2,13 @@ package com.rnb.restDemo.entity;
 
 import jakarta.persistence.*;
 
+/**
+ * INSERT INTO public.employee
+ * (id, email, first_name, last_name)
+ * VALUES(nextval('employee_id_seq'::regclass), 'rnb@gmail.com', 'rnb', 'budukh');
+ * VALUES(nextval('employee_id_seq'::regclass), 'Lena@gmail.com', 'Lena', 'budukh');
+ * commit
+ */
 @Entity
 @Table(name = "employee")
 public class Employee {
