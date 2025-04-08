@@ -1,0 +1,2 @@
+2025-04-08T13:22:51.575+03:00  INFO 43816 --- [restartedMain] c.r.r.repository.pool.ConnectionPool     : Initializing connection pool
+2025-04-08T13:22:51.615+03:00  WARN 43816 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
