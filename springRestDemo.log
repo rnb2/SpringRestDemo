@@ -1,2 +1,16 @@
-2025-04-08T13:22:51.575+03:00  INFO 43816 --- [restartedMain] c.r.r.repository.pool.ConnectionPool     : Initializing connection pool
-2025-04-08T13:22:51.615+03:00  WARN 43816 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-11T13:24:32.074+03:00  INFO 37848 --- [restartedMain] c.r.r.repository.pool.ConnectionPool     : Initializing connection pool
+2025-04-11T13:24:32.172+03:00  WARN 37848 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-11T13:41:34.376+03:00  INFO 37848 --- [restartedMain] c.r.r.repository.pool.ConnectionPool     : Initializing connection pool
+2025-04-11T13:41:34.418+03:00  WARN 37848 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-11T13:54:30.849+03:00  INFO 10536 --- [restartedMain] c.r.r.repository.pool.ConnectionPool     : Initializing connection pool
+2025-04-11T13:54:31.238+03:00  WARN 10536 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-11T13:57:07.656+03:00  INFO 16780 --- [restartedMain] com.rnb.restDemo.RestDemoApplication     : Starting RestDemoApplication using Java 17.0.14 with PID 16780 (D:\Projects\SpringRestDemo\target\classes started by RBudukh in D:\Projects\SpringRestDemo)
+2025-04-11T13:57:07.663+03:00  INFO 16780 --- [restartedMain] com.rnb.restDemo.RestDemoApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-04-11T13:57:13.537+03:00  INFO 16780 --- [restartedMain] c.r.r.repository.pool.ConnectionPool     : Initializing connection pool
+2025-04-11T13:57:13.692+03:00  WARN 16780 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-11T13:57:14.729+03:00  INFO 16780 --- [restartedMain] com.rnb.restDemo.RestDemoApplication     : Started RestDemoApplication in 7.953 seconds (process running for 9.552)
+2025-04-11T14:00:51.482+03:00  INFO 31740 --- [restartedMain] com.rnb.restDemo.RestDemoApplication     : Starting RestDemoApplication using Java 17.0.14 with PID 31740 (D:\Projects\SpringRestDemo\target\classes started by RBudukh in D:\Projects\SpringRestDemo)
+2025-04-11T14:00:51.488+03:00  INFO 31740 --- [restartedMain] com.rnb.restDemo.RestDemoApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-04-11T14:00:59.533+03:00  INFO 31740 --- [restartedMain] c.r.r.repository.pool.ConnectionPool     : Initializing connection pool
+2025-04-11T14:00:59.641+03:00  WARN 31740 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-11T14:01:00.605+03:00  INFO 31740 --- [restartedMain] com.rnb.restDemo.RestDemoApplication     : Started RestDemoApplication in 9.972 seconds (process running for 11.816)
