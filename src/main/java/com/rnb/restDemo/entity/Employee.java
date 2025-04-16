@@ -32,6 +32,10 @@ public class Employee implements BaseEntity<Integer> {
     @Column
     private String email;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
+
     @Override
     public String toString() {
         return "Employee{" +

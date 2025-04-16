@@ -42,4 +42,11 @@ public class EmployeeRepositoryTest {
        // Assertions.assertEquals(2, allByFirstNameContainingIgnoreCase.size());
         MatcherAssert.assertThat(allByFirstNameContainingIgnoreCase.size(), Matchers.is(2));
     }
+
+    @Test
+    public void findByFirstName() {
+        Optional<Employee> employeeOptional = repository.findByFirstName("John");
+
+        Assertions.assertFalse(employeeOptional.isPresent());
+    }
 }
