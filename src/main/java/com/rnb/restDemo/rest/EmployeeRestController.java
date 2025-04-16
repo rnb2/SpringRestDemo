@@ -1,6 +1,7 @@
 package com.rnb.restDemo.rest;
 
 import com.rnb.restDemo.entity.Employee;
+import com.rnb.restDemo.exception.RestDemoException;
 import com.rnb.restDemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +25,14 @@ public class EmployeeRestController {
         return employeeService.getAllEmployees();
     }
 
-    @GetMapping("/employees/{employeeId:\\d+}")
-    public Employee getEmployeesById(@PathVariable("employeeId") int employeeId){
-        return employeeService.findById(employeeId);
+    @GetMapping("/employees/{employeeId}")
+    public Employee getEmployeesById(@PathVariable("employeeId") int employeeId) throws RestDemoException {
+
+        Employee employee = employeeService.findById(employeeId);
+        if (employee == null) {
+            throw new RestDemoException("Employee not found for id = " + employeeId);
+        }
+        return employee;
     }
 
     @GetMapping("/employees/name/{employeeFirstName}")

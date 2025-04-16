@@ -1,6 +1,6 @@
 package com.rnb.restDemo.exception;
 
-public class RestDemoException extends Exception{
+public class RestDemoException extends Exception {
 
     public RestDemoException(String message) {
         super(message);
