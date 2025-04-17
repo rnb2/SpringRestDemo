@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/rnb/api")
@@ -28,11 +29,11 @@ public class EmployeeRestController {
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployeesById(@PathVariable("employeeId") int employeeId) throws RestDemoException {
 
-        Employee employee = employeeService.findById(employeeId);
-        if (employee == null) {
+        Optional<Employee> employee = employeeService.findById(employeeId);
+        if (employee.isEmpty()) {
             throw new RestDemoException("Employee not found for id = " + employeeId);
         }
-        return employee;
+        return employee.get();
     }
 
     @GetMapping("/employees/name/{employeeFirstName}")

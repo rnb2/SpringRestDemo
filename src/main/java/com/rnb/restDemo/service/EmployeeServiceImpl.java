@@ -1,52 +1,53 @@
 package com.rnb.restDemo.service;
 
-import com.rnb.restDemo.dao.EmployeeDao;
 import com.rnb.restDemo.entity.Employee;
+import com.rnb.restDemo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-    private final EmployeeDao employeeDao;
+    private final EmployeeRepository repository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
+    public EmployeeServiceImpl(EmployeeRepository repository) {
+        this.repository = repository;
     }
 
     public List<Employee> getAllEmployees(){
-        return employeeDao.findAll();
+        return repository.findAll();
     }
 
     @Override
     @Transactional
     public Employee save(Employee employee) {
-        return employeeDao.save(employee);
+        return repository.save(employee);
     }
 
     @Override
-    public Employee findById(int id) {
-        return employeeDao.findById(id);
+    public Optional<Employee> findById(int id) {
+        return repository.findById(id);
     }
 
     @Override
     public List<Employee> findByName(String firstName) {
-        return employeeDao.findByName(firstName);
+        return repository.findAllByFirstName(firstName);
     }
 
     @Override
     @Transactional
     public Employee update(int id, Employee employee) {
-        return employeeDao.update(id, employee);
+        return repository.save(employee);
     }
 
     @Override
     @Transactional
     public void delete(int id) {
-        employeeDao.delete(id);
+        repository.deleteById(id);
     }
 }
