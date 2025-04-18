@@ -1,0 +1,30 @@
+openapi: "3.1.0"
+info:
+  title: "SpringRestDemo API"
+  description: "SpringRestDemo API"
+  version: "1.0.0"
+servers:
+  - url: "https://SpringRestDemo"
+paths:
+  /rnb/api/chat/gemini/message:
+    post:
+      summary: "POST rnb/api/chat/gemini/message"
+      operationId: "chat"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: "string"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ChatResponse"
+components:
+  schemas:
+    ChatResponse:
+      type: "object"
+      properties: { }

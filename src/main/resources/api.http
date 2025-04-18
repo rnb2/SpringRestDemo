@@ -1,0 +1,6 @@
+POST http://localhost:8082/ rnb/api/chat/gemini/message
+Content-Type: application/json
+
+{
+  "message": "How to loose weight in 42 years"
+}

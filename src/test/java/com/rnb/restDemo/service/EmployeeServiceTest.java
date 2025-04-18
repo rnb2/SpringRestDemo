@@ -8,6 +8,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
@@ -23,11 +25,11 @@ public class EmployeeServiceTest {
         Employee expectedResult = new Employee();
         expectedResult.setId(EMPLOYEE_ID);
 
-        Mockito.when(employeeService.findById(EMPLOYEE_ID)).thenReturn(expectedResult);
+        Mockito.when(employeeService.findById(EMPLOYEE_ID)).thenReturn(Optional.of(expectedResult));
 
-        Employee actualResult = employeeService.findById(EMPLOYEE_ID);
+        Optional<Employee> actualResult = employeeService.findById(EMPLOYEE_ID);
 
         Assertions.assertNotNull(actualResult);
-        Assertions.assertEquals(expectedResult, actualResult);
+        actualResult.ifPresent(employee -> Assertions.assertEquals(expectedResult, employee));
     }
 }

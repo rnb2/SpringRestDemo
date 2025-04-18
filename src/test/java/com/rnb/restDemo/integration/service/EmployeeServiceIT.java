@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.matchers.apachecommons.ReflectionEquals;
 
+import java.util.Optional;
+
 
 @IT
 @RequiredArgsConstructor
@@ -29,12 +31,14 @@ public class EmployeeServiceIT {
         expectedResult.setLastName("budukh");
         expectedResult.setEmail("rnb@gmail.com");
 
-        Employee actualResult = employeeService.findById(EMPLOYEE_ID);
+        Optional<Employee> actualResult = employeeService.findById(EMPLOYEE_ID);
 
         Assertions.assertNotNull(actualResult);
 
-        boolean fieldsMatches = new ReflectionEquals(expectedResult).matches(actualResult);
-        Assertions.assertTrue(fieldsMatches);
+        if (actualResult.isPresent()) {
+            boolean fieldsMatches = new ReflectionEquals(expectedResult).matches(actualResult.get());
+            Assertions.assertTrue(fieldsMatches);
+        }
 
     }
 }

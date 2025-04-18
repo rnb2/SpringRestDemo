@@ -1,6 +1,7 @@
 package com.rnb.restDemo.repository.pool;
 
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +15,10 @@ public class ConnectionPool {
     private final String password;
     private final Integer poolSize;
     private final String url;
+
+    @Getter
+    @Value("${spring.ai.openai.api-key}")
+    private String key;
 
     public ConnectionPool(@Value("${spring.datasource.username}") String userName,
                           @Value("${spring.datasource.password}") String password,
@@ -29,4 +34,5 @@ public class ConnectionPool {
     public void initialize() {
             log.info("Initializing connection pool");
     }
+
 }
