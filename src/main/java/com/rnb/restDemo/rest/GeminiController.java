@@ -8,6 +8,7 @@ import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.model.Generation;
 import org.springframework.ai.vertexai.gemini.VertexAiGeminiChatModel;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -35,15 +36,16 @@ public class GeminiController {
     }
 
     @PostMapping("/message")
-    public ChatResponse chat(@RequestBody String message) {
-        String chat = this.service.chat(message);
+    public String chat(@RequestBody String message) {
+        /*String chat = this.service.chat(message);
         List<Generation> list = new ArrayList<>();
         AssistantMessage assistantMessage = new AssistantMessage(chat);
         Generation generation = new Generation(assistantMessage);
         list.add(generation);
-        ChatResponse chatResponse = new ChatResponse(list);
+        ChatResponse chatResponse = new ChatResponse(list);*/
 
-        System.out.println("Response: " + chatResponse.getResult().getOutput().getText());
-        return chatResponse;
+        ResponseEntity<String> responseEntity = this.service.chat(message);
+        System.out.println("Response: " + responseEntity.getBody());
+        return responseEntity.getBody();
     }
 }
