@@ -35,6 +35,12 @@ public class GeminiController {
         this.service = service;
     }
 
+    @GetMapping("/message/{message}")
+    public String generation(@PathVariable String message) {
+        ResponseEntity<String> responseEntity = this.service.chat(message);
+        return responseEntity.getBody();
+    }
+
     @PostMapping("/message")
     public String chat(@RequestBody String message) {
         /*String chat = this.service.chat(message);
