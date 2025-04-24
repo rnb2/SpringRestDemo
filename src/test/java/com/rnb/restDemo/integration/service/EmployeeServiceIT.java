@@ -1,7 +1,6 @@
 package com.rnb.restDemo.integration.service;
 
 import com.rnb.restDemo.annotation.IT;
-import com.rnb.restDemo.dao.EmployeeDao;
 import com.rnb.restDemo.entity.Employee;
 import com.rnb.restDemo.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +19,6 @@ public class EmployeeServiceIT {
 
     private static final int EMPLOYEE_ID = 1;
 
-    private final EmployeeDao employeeDao;
     private final EmployeeService employeeService;
 
     @Test

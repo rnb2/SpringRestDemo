@@ -32,7 +32,7 @@ public class Employee implements BaseEntity<Integer> {
     @Column
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
     private Company company;
 

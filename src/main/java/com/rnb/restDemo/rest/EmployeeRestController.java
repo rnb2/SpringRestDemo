@@ -4,6 +4,8 @@ import com.rnb.restDemo.entity.Employee;
 import com.rnb.restDemo.exception.RestDemoException;
 import com.rnb.restDemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,18 +24,22 @@ public class EmployeeRestController {
     }
 
     @GetMapping("/employees")
-    public List<Employee> getEmployees(){
-        return employeeService.getAllEmployees();
+    public ResponseEntity<List<Employee>> getEmployees(){
+        List<Employee> employees = employeeService.getAllEmployees();
+        if (employees != null && !employees.isEmpty()){
+            return new ResponseEntity<>(employees, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(employees, HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/employees/{employeeId}")
-    public Employee getEmployeesById(@PathVariable("employeeId") int employeeId) throws RestDemoException {
+    public ResponseEntity<Employee> getEmployeesById(@PathVariable("employeeId") int employeeId) throws RestDemoException {
 
         Optional<Employee> employee = employeeService.findById(employeeId);
         if (employee.isEmpty()) {
             throw new RestDemoException("Employee not found for id = " + employeeId);
         }
-        return employee.get();
+        return new ResponseEntity<>(employee.get(), HttpStatus.OK);
     }
 
     @GetMapping("/employees/name/{employeeFirstName}")
